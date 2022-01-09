@@ -1,0 +1,17 @@
+FROM ubuntu:18.04
+
+RUN apt-get update
+RUN apt-get install -y apt-utils
+RUN apt-get upgrade -y
+
+RUN apt-get install -y wget ca-certificates iproute2 net-tools telnet tcpdump iputils-ping procps iperf iperf3 flent netperf python3-setuptools curl 
+RUN apt-get install nano
+
+RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN apt-get update
+RUN apt-get install -y nodejs
+
+# Define default command.
+CMD ["bash"]

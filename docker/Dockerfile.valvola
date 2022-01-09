@@ -1,0 +1,8 @@
+FROM mynodejs
+
+WORKDIR /home/app
+COPY valvola /home/app
+
+RUN npm install
+
+ENTRYPOINT node /home/app/build/index.js $NAME
